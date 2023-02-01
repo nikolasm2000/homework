@@ -1,6 +1,6 @@
 # Welcome to CIS 522 Deep Learning!
 
-> **Note** Due January 31st before midnight in your timezone
+> **Note** Due January 31st before midnight in your timezone 
 
 This is the first assignment for the course. It is designed to help you get familiar with the course environment and the tools we will be using.
 
