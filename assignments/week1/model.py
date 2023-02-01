@@ -34,7 +34,12 @@ class GradientDescentLinearRegression(LinearRegression):
     def fit(
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
-        raise NotImplementedError()
+        for _ in range(epochs): 
+            Y_pred = self.predict(X)
+            Dw = (-2/len(X)) * sum(X * (y - Y_pred))
+            Db = (-2/len(X)) * sum(y - Y_pred)
+            self.w = self.w - lr * Dw 
+            self.b = self.b - lr * Db 
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         """
@@ -47,4 +52,6 @@ class GradientDescentLinearRegression(LinearRegression):
             np.ndarray: The predicted output.
 
         """
-        raise NotImplementedError()
+        X = np.array(X)
+        X = np.c_[np.ones((len(X), 1)), X]
+        return X.dot(np.r_[self.b, self.w])
