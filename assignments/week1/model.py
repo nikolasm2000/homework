@@ -7,13 +7,23 @@ class LinearRegression:
     b: float
 
     def __init__(self):
-        raise NotImplementedError()
+        self.w = []
+        self.b = 0
 
     def fit(self, X, y):
-        raise NotImplementedError()
+        # Closed form 
+        X = np.array(X)
+        y = np.array(y)
+        X_b = np.c_[np.ones((len(X), 1)), X]
+        self.w = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+        self.b = self.w[0]
+        self.w = self.w[1:]
+
 
     def predict(self, X):
-        raise NotImplementedError()
+        X = np.array(X)
+        X = np.c_[np.ones((len(X), 1)), X]
+        return X.dot(np.r_[self.b, self.w])
 
 
 class GradientDescentLinearRegression(LinearRegression):
