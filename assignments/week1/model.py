@@ -2,11 +2,18 @@ import numpy as np
 
 
 class LinearRegression:
+    """
+    A linear regression model that uses gradient descent to fit the model.
+    """
 
     w: np.ndarray
     b: float
 
     def __init__(self):
+        """
+        Initialize the class
+
+        """
         self.w = []
         self.b = 0
 
