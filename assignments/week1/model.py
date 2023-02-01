@@ -20,9 +20,7 @@ class LinearRegression:
         self.w = self.w[1:]
 
     def predict(self, X):
-        X = np.array(X)
-        X = np.c_[np.ones((len(X), 1)), X]
-        return X.dot(np.r_[self.b, self.w])
+        return self.w * X + self.b
 
 
 class GradientDescentLinearRegression(LinearRegression):
@@ -51,6 +49,4 @@ class GradientDescentLinearRegression(LinearRegression):
             np.ndarray: The predicted output.
 
         """
-        X = np.array(X)
-        X = np.c_[np.ones((len(X), 1)), X]
-        return X.dot(np.r_[self.b, self.w])
+        return self.w * X + self.b
