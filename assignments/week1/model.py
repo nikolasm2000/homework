@@ -17,7 +17,7 @@ class LinearRegression:
         self.w = []
         self.b = 0
 
-    def fit(self, X, y):
+    def fit(self, X, y) -> None:
         """
         Fit the model to the data
 
@@ -29,7 +29,7 @@ class LinearRegression:
         self.b = self.w[0]
         self.w = self.w[1:]
 
-    def predict(self, X):
+    def predict(self, X) -> np.ndarray:
         """
         Make predictions with the model
 
