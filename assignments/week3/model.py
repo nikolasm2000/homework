@@ -52,6 +52,8 @@ class MLP(torch.nn.Module):
         self.fc1 = torch.nn.Linear(self.input_size, self.hidden_size)
         torch.nn.init.xavier_normal_(self.fc1.weight)
         self.relu = torch.nn.ReLU()
+        self.hidden1 = torch.nn.Linear(self.hidden_size, self.hidden_size)
+        torch.nn.init.xavier_normal_(self.hidden1.weight)
         self.fc2 = torch.nn.Linear(self.hidden_size, self.num_classes)
         torch.nn.init.xavier_normal_(self.fc2.weight)
 
@@ -81,6 +83,8 @@ class MLP(torch.nn.Module):
         # return out
 
         out = self.fc1(x)
+        out = self.relu(out)
+        out = self.hidden1(out)
         out = self.relu(out)
         out = self.fc2(out)
         return out
