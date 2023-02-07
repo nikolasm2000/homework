@@ -30,25 +30,30 @@ class MLP(torch.nn.Module):
         self.hidden_size = hidden_size
         self.num_classes = num_classes
         self.hidden_count = hidden_count
-        self.activation = activation()
+        self.activation = torch.nn.ReLU
 
         # define first layer
+        # self.fc1 = torch.nn.Linear(self.input_size, self.hidden_size)
+        # initializer(self.fc1.weight)
+
+        # # define hidden layers
+        # layers = [
+        #     torch.nn.Linear(self.hidden_size, self.hidden_size)
+        #     for _ in range(self.hidden_count - 1)
+        # ]
+        # self.hidden_layers = torch.nn.ModuleList(layers)
+
+        # for hidden_layer in self.hidden_layers:
+        #     initializer(hidden_layer.weight)
+
+        # # define last layer
+        # self.fcn = torch.nn.Linear(self.hidden_size, self.num_classes)
+        # initializer(self.fcn.weight)
         self.fc1 = torch.nn.Linear(self.input_size, self.hidden_size)
-        initializer(self.fc1.weight)
-
-        # define hidden layers
-        layers = [
-            torch.nn.Linear(self.hidden_size, self.hidden_size)
-            for _ in range(self.hidden_count - 1)
-        ]
-        self.hidden_layers = torch.nn.ModuleList(layers)
-
-        for hidden_layer in self.hidden_layers:
-            initializer(hidden_layer.weight)
-
-        # define last layer
-        self.fcn = torch.nn.Linear(self.hidden_size, self.num_classes)
-        initializer(self.fcn.weight)
+        torch.nn.init.xavier_normal_(self.fc1.weight)
+        self.relu = torch.nn.ReLU()
+        self.fc2 = torch.nn.Linear(self.hidden_size, self.num_classes)
+        torch.nn.init.xavier_normal_(self.fc2.weight)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -63,14 +68,19 @@ class MLP(torch.nn.Module):
         # for each layer x @ w. then repeat until you get values for each class
 
         # 1. first layer
+        # out = self.fc1(x)
+        # out = self.activation(out)
+
+        # # 2. hidden layers
+        # for hidden_layer in self.hidden_layers:
+        #     out = hidden_layer(out)
+        #     out = self.activation(out)
+
+        # out = self.fcn(out)
+
+        # return out
+
         out = self.fc1(x)
-        out = self.activation(out)
-
-        # 2. hidden layers
-        for hidden_layer in self.hidden_layers:
-            out = hidden_layer(out)
-            out = self.activation(out)
-
-        out = self.fcn(out)
-
+        out = self.relu(out)
+        out = self.fc2(out)
         return out
