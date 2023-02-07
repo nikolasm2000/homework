@@ -31,6 +31,7 @@ class MLP(torch.nn.Module):
         self.num_classes = num_classes
         self.hidden_count = hidden_count
         self.activation = torch.nn.ReLU
+        self.dropout = torch.nn.Dropout(0.1)
 
         # define first layer
         # self.fc1 = torch.nn.Linear(self.input_size, self.hidden_size)
@@ -86,5 +87,6 @@ class MLP(torch.nn.Module):
         out = self.relu(out)
         out = self.hidden1(out)
         out = self.relu(out)
+        out = self.dropout(out)
         out = self.fc2(out)
         return out
