@@ -87,6 +87,5 @@ class MLP(torch.nn.Module):
         out = self.relu(out)
         out = self.hidden1(out)
         out = self.relu(out)
-        out = self.dropout(out)
         out = self.fc2(out)
         return out
