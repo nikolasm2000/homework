@@ -2,8 +2,12 @@
     "assignment_name": "MLP",
     "contributors": [
         {
-            "name": "Jordan Matelsky",
-            "pennkey": "matelsky"
+            "name": "Nikolas Mihailidis",
+            "pennkey": "mnikolas"
+        }, 
+        {
+            "name": "Mark Haghani",
+            "pennkey": "haghanim"
         }
     ],
     "sources": [

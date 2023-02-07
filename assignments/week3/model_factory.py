@@ -15,8 +15,8 @@ def create_model(input_dim: int, output_dim: int) -> MLP:
         MLP: The created model.
 
     """
-    hidden_size = 32
-    hidden_count = 1
+    hidden_size = 128
+    hidden_count = 3
 
     return MLP(
         input_dim,
