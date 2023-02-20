@@ -2,8 +2,12 @@
     "assignment_name": "RegOpt",
     "contributors": [
         {
-            "name": "Change this to your name",
-            "pennkey": "MyPennKey"
+            "name": "Nikolas Mihailidis",
+            "pennkey": "mnikolas"
+        }, 
+        {
+            "name": "Mark Haghani",
+            "pennkey": "haghanim"
         }
     ],
     "sources": [
