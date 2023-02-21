@@ -12,7 +12,7 @@ class CONFIG:
     # initial_weight_decay = 0
 
     batch_size = 32
-    num_epochs = 10
+    num_epochs = 14
     initial_learning_rate = 0.02
     initial_weight_decay = 0
 
