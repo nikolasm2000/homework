@@ -14,7 +14,6 @@ class CustomLRScheduler(_LRScheduler):
         step_size,
         num_epochs,
         initial_learning_rate,
-        initial_weight_decay,
         batch_size,
         last_epoch=-1,
         gamma=0.1,
@@ -32,7 +31,7 @@ class CustomLRScheduler(_LRScheduler):
         self.batch_size = batch_size
         self.num_epochs = num_epochs
         self.initial_learning_rate = initial_learning_rate
-        self.initial_weight_decay = initial_weight_decay
+        self.initial_weight_decay = 0
 
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
         # leave alone
