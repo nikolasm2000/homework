@@ -2,11 +2,16 @@
     "assignment_name": "Convolutions",
     "contributors": [
         {
-            "name": "Change this to your name",
-            "pennkey": "MyPennKey"
+            "name": "Nikolas Mihailidis",
+            "pennkey": "mnikolas"
+        }, 
+        {
+            "name": "Mark Haghini",
+            "pennkey": "Haghanim"
         }
     ],
     "sources": [
-        "Don't forget to list your sources/attribution here!"
+        "Don't forget to list your sources/attribution here!",
+        "https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html"
     ]
 }
