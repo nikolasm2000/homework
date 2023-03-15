@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 class Model(torch.nn.Module):
     """
-    A CNN model for image classification
+    A CNN model for image classification.
     """
 
     def __init__(
@@ -24,13 +24,10 @@ class Model(torch.nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass through the dataset.
-
         Arguments:
             X (np.ndarray): The input data.
-
         Returns:
             np.ndarray: The predicted output.
-
         """
 
         x = self.pool(F.relu(self.conv1(x)))
