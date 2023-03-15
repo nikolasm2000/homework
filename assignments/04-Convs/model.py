@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 class Model(torch.nn.Module):
     """
-    A CNN model for image classification.
+    A CNN model for image classification
     """
 
     def __init__(
