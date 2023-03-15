@@ -14,7 +14,7 @@ class Model(torch.nn.Module):
         num_classes: int,
     ) -> None:
         super().__init__()
-        self.conv1 = nn.Conv2d(num_channels, 6, 5, stride = 2)
+        self.conv1 = nn.Conv2d(num_channels, 6, 5, stride=2)
         self.pool = nn.MaxPool2d(3, 3)
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16 * 5 * 5, num_classes)
