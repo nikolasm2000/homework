@@ -14,7 +14,7 @@ class Model(torch.nn.Module):
         num_classes: int,
     ) -> None:
         super().__init__()
-        self.conv1 = nn.Conv2d(num_channels, 12, 5)
+        self.conv1 = nn.Conv2d(num_channels, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.dropout = nn.Dropout(0.1)
         self.fc1 = nn.Linear(2352, 120)
