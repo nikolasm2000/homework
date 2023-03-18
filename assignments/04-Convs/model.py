@@ -17,7 +17,7 @@ class Model(torch.nn.Module):
         self.conv1 = nn.Conv2d(num_channels, 12, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.dropout = nn.Dropout(0.1)
-        self.fc1 = nn.Linear(1176, 120)
+        self.fc1 = nn.Linear(2352, 120)
         self.fc3 = nn.Linear(120, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
